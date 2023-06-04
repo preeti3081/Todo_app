@@ -1,0 +1,25 @@
+body{
+    margin: 20px;
+    background-color: gainsboro;
+    text-align: center;
+}
+#category-date{
+    display: inline-block;
+}
+#addtask{
+    background-color: gray;
+}
+#delete{
+    background-color: red;
+    color: white;
+}
+#category{
+    display: inline-block;
+}
+#date1{
+    display:inline-block;
+}
+#main{
+    background-color: blanchedalmond;
+    
+}

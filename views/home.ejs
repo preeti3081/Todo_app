@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>
+            <%= title %>
+        </title>
+        <link rel="stylesheet" href="/css/style.css"> 
+    </head>
+    <body><div id="main">
+        <h1>TODO APP</h1><hr>
+        <form action = "/create-task" method="POST">
+            <!-- first box for task describe -->
+            <label for="task">DESCRIPTION</label>
+            <input type="text" name="task" placeholder = "What do you need to do?"/><hr>
+            <!-- 2nd for category and date -->
+            <div id="category-date">
+                <div id="category"><h2>CATEGORY</h2>
+                <label for="category">Choose a category</label>
+                <select name="category">
+                  <option value="personal">Personal</option>
+                  <option value="school">School</option>
+                  <option value="work">Work</option>
+                </select>
+                </div><br><br>
+                <div id="date1"><label for="date">DUE DATE</label>
+                <input type="date" id="date" name="date"></div>
+                </div><hr>
+            <!-- 3rd row for buttons -->
+            <button type="submit" id="addtask"> + ADD TASK</button>
+            
+            <!-- Add a hidden form to submit the selected tasks for deletion -->
+</form> 
+<form action="/delete" method="POST" id="deleteForm">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit" id="delete"><i class="fa-solid fa-trash"></i>DELETE TASK</button>
+    <hr>
+  
+  
+  <h1>Task Schedule</h1>
+        <div>
+            <ul>
+                <% for(let i of todo_task){ %>
+                    <li>
+                        <!-- <input type="checkbox" name="taskCheckbox" value="<%= i._id %>"> -->
+                        <input type="checkbox" name="taskCheckbox[]" value="<%= i._id %>">
+                        <span><%= i.task %></span>
+                        <span><%= i.date %></span>
+                        <!-- trying new method to delete -->
+                        <!-- <a href="/delete/?id=<%= i._id %>"><button type="submit" id="delete"><i class="fa-solid fa-trash"></i>DELETE TASK</button></a> -->
+                    </li><br>
+                <% } %>
+            </ul>
+        </div></form></div>
+        <script src="https://kit.fontawesome.com/a0639c05af.js" crossorigin="anonymous"></script>
+    </body>
+</html>
